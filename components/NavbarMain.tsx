@@ -13,7 +13,7 @@ export default function NavbarMain() {
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom" id="main-navbar">
       <div className="container">
         <Link href="/" className="navbar-brand" onClick={handleNavClick}>
-          František Novotný
+          František Smrž
         </Link>
 
         <button

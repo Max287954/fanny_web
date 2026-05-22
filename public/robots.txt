@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://frantisek-novotny.cz/sitemap.xml
+Sitemap: https://thesmrz.cz/sitemap.xml

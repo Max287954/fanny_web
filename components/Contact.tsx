@@ -106,7 +106,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} id="contact-form">
               {/* Web3Forms Honeypot */}
               <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
-              
+
               <div className="row g-3">
                 <div className="col-md-6">
                   <div className="form-group">

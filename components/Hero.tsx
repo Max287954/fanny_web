@@ -7,7 +7,7 @@ export default function Hero() {
         <h1 className="hero-name">
           František
           <br />
-          <span className="text-gradient">Novotný</span>
+          <span className="text-gradient">SmrŽ</span>
         </h1>
 
         <p className="hero-tagline">

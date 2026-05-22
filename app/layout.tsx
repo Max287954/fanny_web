@@ -6,18 +6,18 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: {
-    default: 'František Novotný — Elektrikář & Vedoucí směny',
-    template: '%s | František Novotný',
+    default: 'František Smrž — Elektrikář & Vedoucí směny',
+    template: '%s | František Smrž',
   },
   description:
-    'Online životopis Františka Novotného — zkušený elektrikář a vedoucí směny s 8 lety praxe ve společnosti Husqvarna. Specializace na průmyslovou elektroinstalaci, automatizaci a vedení týmů.',
-  metadataBase: new URL('https://frantisek-novotny.cz'),
+    'Online životopis Františka Smrže — zkušený elektrikář a vedoucí směny s 8 lety praxe ve společnosti Husqvarna. Specializace na průmyslovou elektroinstalaci, automatizaci a vedení týmů.',
+  metadataBase: new URL('https://thesmrz.cz'),
   openGraph: {
-    title: 'František Novotný — Elektrikář & Vedoucí směny',
+    title: 'František Smrž — Elektrikář & Vedoucí směny',
     description:
       'Online životopis zkušeného elektrikáře a vedoucího směny s praxí v průmyslové automatizaci.',
-    url: 'https://frantisek-novotny.cz',
-    siteName: 'František Novotný — Portfolio',
+    url: 'https://thesmrz.cz',
+    siteName: 'František Smrž — Portfolio',
     locale: 'cs_CZ',
     type: 'website',
   },
