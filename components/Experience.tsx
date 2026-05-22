@@ -1,5 +1,3 @@
-import { Container, Row, Col } from 'react-bootstrap';
-
 interface TimelineEntry {
   period: string;
   role: string;
@@ -51,17 +49,17 @@ const timeline: TimelineEntry[] = [
 export default function Experience() {
   return (
     <section className="section-block experience-section" id="zkusenosti">
-      <Container>
-        <Row>
-          <Col lg={4} className="mb-4 mb-lg-0">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-4 mb-4 mb-lg-0">
             <h2 className="section-title">Pracovní zkušenosti</h2>
             <p className="section-subtitle">
               Více než 13 let praxe v oboru elektrotechniky — od instalací
               po vedení směnového provozu.
             </p>
-          </Col>
+          </div>
 
-          <Col lg={8}>
+          <div className="col-lg-8">
             <div className="ps-lg-4">
               {timeline.map((entry, index) => (
                 <div
@@ -85,9 +83,9 @@ export default function Experience() {
                 </div>
               ))}
             </div>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

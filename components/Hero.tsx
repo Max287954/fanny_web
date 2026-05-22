@@ -1,9 +1,7 @@
-import { Container, Button } from 'react-bootstrap';
-
 export default function Hero() {
   return (
     <section className="hero-section" id="hero">
-      <Container className="position-relative">
+      <div className="container position-relative">
         <div className="hero-badge">Elektrikář &bull; Vedoucí směny</div>
 
         <h1 className="hero-name">
@@ -19,19 +17,17 @@ export default function Hero() {
         </p>
 
         <div className="hero-cta d-flex gap-3 flex-wrap">
-          <Button href="#kontakt" className="btn-accent" size="lg">
+          <a href="#kontakt" className="btn btn-accent btn-lg">
             Kontaktujte mě
-          </Button>
-          <Button
+          </a>
+          <a
             href="#zkusenosti"
-            variant="link"
-            className="btn-outline-light-custom"
-            size="lg"
+            className="btn btn-link btn-outline-light-custom btn-lg text-decoration-none"
           >
             Moje zkušenosti
-          </Button>
+          </a>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

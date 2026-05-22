@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, FormEvent, ChangeEvent } from 'react';
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import Link from 'next/link';
 
 interface FormData {
@@ -78,9 +77,9 @@ export default function Contact() {
 
   return (
     <section className="section-block contact-section" id="kontakt">
-      <Container>
-        <Row className="justify-content-center">
-          <Col lg={7}>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-lg-7">
             <div className="text-center mb-5">
               <h2 className="section-title" style={{ color: '#fff' }}>
                 Napište mi
@@ -92,99 +91,106 @@ export default function Contact() {
             </div>
 
             {status === 'success' && (
-              <Alert className="alert-glass text-center mb-4" id="contact-success">
+              <div className="alert alert-glass text-center mb-4" id="contact-success">
                 ✅ Děkuji za zprávu! Ozvu se vám co nejdříve.
-              </Alert>
+              </div>
             )}
 
             {status === 'error' && (
-              <Alert variant="danger" className="text-center mb-4" id="contact-error">
+              <div className="alert alert-danger text-center mb-4" id="contact-error">
                 ❌ Odeslání se nezdařilo. Zkuste to prosím znovu nebo mě
                 kontaktujte přímo e-mailem.
-              </Alert>
+              </div>
             )}
 
-            <Form onSubmit={handleSubmit} id="contact-form">
+            <form onSubmit={handleSubmit} id="contact-form">
               {/* Web3Forms Honeypot */}
               <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
               
-              <Row className="g-3">
-                <Col md={6}>
-                  <Form.Group controlId="contact-name">
-                    <Form.Label className="visually-hidden">
+              <div className="row g-3">
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <label htmlFor="contact-name" className="visually-hidden">
                       Jméno a příjmení
-                    </Form.Label>
-                    <Form.Control
+                    </label>
+                    <input
                       type="text"
+                      id="contact-name"
                       name="name"
+                      className="form-control"
                       placeholder="Jméno a příjmení"
                       value={formData.name}
                       onChange={handleChange}
                       required
                     />
-                  </Form.Group>
-                </Col>
-                <Col md={6}>
-                  <Form.Group controlId="contact-email">
-                    <Form.Label className="visually-hidden">
+                  </div>
+                </div>
+                <div className="col-md-6">
+                  <div className="form-group">
+                    <label htmlFor="contact-email" className="visually-hidden">
                       E-mail
-                    </Form.Label>
-                    <Form.Control
+                    </label>
+                    <input
                       type="email"
+                      id="contact-email"
                       name="email"
+                      className="form-control"
                       placeholder="Váš e-mail"
                       value={formData.email}
                       onChange={handleChange}
                       required
                     />
-                  </Form.Group>
-                </Col>
-                <Col xs={12}>
-                  <Form.Group controlId="contact-message">
-                    <Form.Label className="visually-hidden">Zpráva</Form.Label>
-                    <Form.Control
-                      as="textarea"
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="form-group">
+                    <label htmlFor="contact-message" className="visually-hidden">
+                      Zpráva
+                    </label>
+                    <textarea
+                      id="contact-message"
                       name="message"
                       rows={5}
+                      className="form-control"
                       placeholder="Vaše zpráva..."
                       value={formData.message}
                       onChange={handleChange}
                       required
                     />
-                  </Form.Group>
-                </Col>
-                <Col xs={12}>
-                  <Form.Check
-                    type="checkbox"
-                    id="contact-consent"
-                    name="consent"
-                    checked={formData.consent}
-                    onChange={handleChange}
-                    label={
-                      <>
-                        Souhlasím se zpracováním osobních údajů za účelem
-                        odpovědi na mou zprávu.{' '}
-                        <Link href="/ochrana-soukromi">
-                          Zásady ochrany soukromí
-                        </Link>
-                      </>
-                    }
-                    required
-                  />
-                </Col>
-                <Col xs={12} className="text-center mt-3">
-                  <Button
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="form-check">
+                    <input
+                      type="checkbox"
+                      id="contact-consent"
+                      name="consent"
+                      className="form-check-input"
+                      checked={formData.consent}
+                      onChange={handleChange}
+                      required
+                    />
+                    <label className="form-check-label" htmlFor="contact-consent">
+                      Souhlasím se zpracováním osobních údajů za účelem
+                      odpovědi na mou zprávu.{' '}
+                      <Link href="/ochrana-soukromi">
+                        Zásady ochrany soukromí
+                      </Link>
+                    </label>
+                  </div>
+                </div>
+                <div className="col-12 text-center mt-3">
+                  <button
                     type="submit"
-                    className="btn-accent px-5"
-                    size="lg"
+                    className="btn btn-accent px-5 btn-lg"
                     disabled={status === 'sending' || !formData.consent}
                     id="contact-submit"
                   >
                     {status === 'sending' ? 'Odesílám...' : 'Odeslat zprávu'}
-                  </Button>
-                </Col>
-              </Row>
-            </Form>
+                  </button>
+                </div>
+              </div>
+            </form>
 
             <p
               className="text-center mt-4 small"
@@ -202,9 +208,9 @@ export default function Contact() {
               </Link>
               .
             </p>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

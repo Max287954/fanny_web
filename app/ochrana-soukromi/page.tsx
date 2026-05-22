@@ -1,4 +1,3 @@
-import { Container } from 'react-bootstrap';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,7 +9,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <div className="privacy-page">
-      <Container>
+      <div className="container">
         <h1>Zásady ochrany osobních údajů</h1>
         <p>
           <em>Poslední aktualizace: {new Date().getFullYear()}</em>
@@ -106,7 +105,7 @@ export default function PrivacyPage() {
             novotny.ondrej.it@gmail.com
           </a>
         </p>
-      </Container>
+      </div>
     </div>
   );
 }

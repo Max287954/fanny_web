@@ -1,4 +1,3 @@
-import { Container } from 'react-bootstrap';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -6,14 +5,14 @@ export default function Footer() {
 
   return (
     <footer className="site-footer" id="site-footer">
-      <Container className="text-center">
+      <div className="container text-center">
         <p className="mb-1">
           &copy; {currentYear} František Novotný. Všechna práva vyhrazena.
         </p>
         <p className="mb-0">
           <Link href="/ochrana-soukromi">Ochrana soukromí</Link>
         </p>
-      </Container>
+      </div>
     </footer>
   );
 }

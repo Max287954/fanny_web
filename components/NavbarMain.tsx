@@ -1,52 +1,57 @@
 'use client';
 
 import { useState } from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
 import Link from 'next/link';
 
 export default function NavbarMain() {
-  const [expanded, setExpanded] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleNavClick = () => setExpanded(false);
+  const handleNavClick = () => setIsOpen(false);
+  const toggleNavbar = () => setIsOpen(!isOpen);
 
   return (
-    <Navbar
-      expand="lg"
-      variant="dark"
-      fixed="top"
-      expanded={expanded}
-      onToggle={(val) => setExpanded(val)}
-      className="navbar-custom"
-      id="main-navbar"
-    >
-      <Container>
-        <Navbar.Brand as={Link} href="/" onClick={handleNavClick}>
+    <nav className="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom" id="main-navbar">
+      <div className="container">
+        <Link href="/" className="navbar-brand" onClick={handleNavClick}>
           František Novotný
-        </Navbar.Brand>
+        </Link>
 
-        <Navbar.Toggle aria-controls="main-nav" />
+        <button
+          className="navbar-toggler"
+          type="button"
+          aria-controls="main-nav"
+          aria-expanded={isOpen}
+          aria-label="Toggle navigation"
+          onClick={toggleNavbar}
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-        <Navbar.Collapse id="main-nav">
-          <Nav className="ms-auto">
-            <Nav.Link href="/#dovednosti" onClick={handleNavClick}>
-              Dovednosti
-            </Nav.Link>
-            <Nav.Link href="/#zkusenosti" onClick={handleNavClick}>
-              Zkušenosti
-            </Nav.Link>
-            <Nav.Link href="/#kontakt" onClick={handleNavClick}>
-              Kontakt
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              href="/ochrana-soukromi"
-              onClick={handleNavClick}
-            >
-              Ochrana soukromí
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+        <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`} id="main-nav">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <a href="/#dovednosti" className="nav-link" onClick={handleNavClick}>
+                Dovednosti
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="/#zkusenosti" className="nav-link" onClick={handleNavClick}>
+                Zkušenosti
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="/#kontakt" className="nav-link" onClick={handleNavClick}>
+                Kontakt
+              </a>
+            </li>
+            <li className="nav-item">
+              <Link href="/ochrana-soukromi" className="nav-link" onClick={handleNavClick}>
+                Ochrana soukromí
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }

@@ -2,7 +2,7 @@
 
 ## Přehled
 
-Osobní online CV (životopis) postavený na frameworku **Next.js 14** s App Routerem, TypeScriptem a knihovnou **react-bootstrap**. Stránky jsou generovány jako **statický export (SSG)** pro nasazení na **Cloudflare Pages**.
+Osobní online CV (životopis) postavený na frameworku **Next.js 14** s App Routerem, TypeScriptem a CSS frameworkem **Bootstrap 5**. Stránky jsou generovány jako **statický export (SSG)** pro nasazení na **Cloudflare Pages**.
 
 ## Technologie
 
@@ -11,7 +11,6 @@ Osobní online CV (životopis) postavený na frameworku **Next.js 14** s App Rou
 | Next.js             | 14.x     | Framework, App Router, SSG         |
 | TypeScript          | 5.x      | Typová bezpečnost                  |
 | React               | 18.x     | UI knihovna                        |
-| react-bootstrap     | 2.x      | UI komponenty (Bootstrap 5)        |
 | Bootstrap           | 5.3.x    | CSS framework                      |
 | Web3Forms           | API      | Zpracování kontaktního formuláře   |
 | Cloudflare Pages    | —        | Hosting (statický)                 |

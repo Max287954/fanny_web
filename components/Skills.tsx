@@ -1,5 +1,3 @@
-import { Container, Row, Col, Card } from 'react-bootstrap';
-
 interface Skill {
   icon: string;
   title: string;
@@ -48,7 +46,7 @@ const skills: Skill[] = [
 export default function Skills() {
   return (
     <section className="section-block" id="dovednosti">
-      <Container>
+      <div className="container">
         <div className="text-center mb-5">
           <h2 className="section-title">Odborné dovednosti</h2>
           <p className="section-subtitle mx-auto">
@@ -57,24 +55,24 @@ export default function Skills() {
           </p>
         </div>
 
-        <Row className="g-4">
+        <div className="row g-4">
           {skills.map((skill, index) => (
-            <Col key={index} md={6} lg={4}>
-              <Card className="card-hover h-100 p-4" id={`skill-card-${index}`}>
-                <Card.Body>
+            <div key={index} className="col-md-6 col-lg-4">
+              <div className="card card-hover h-100 p-4" id={`skill-card-${index}`}>
+                <div className="card-body">
                   <div className="skill-icon">{skill.icon}</div>
-                  <Card.Title className="fw-bold mb-2">
+                  <h3 className="card-title h5 fw-bold mb-2">
                     {skill.title}
-                  </Card.Title>
-                  <Card.Text className="text-muted">
+                  </h3>
+                  <p className="card-text text-muted">
                     {skill.description}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
+                  </p>
+                </div>
+              </div>
+            </div>
           ))}
-        </Row>
-      </Container>
+        </div>
+      </div>
     </section>
   );
 }
