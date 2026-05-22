@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Ochrana soukromí',
   description:
-    'Zásady ochrany osobních údajů — František Novotný. Informace o zpracování dat z kontaktního formuláře.',
+    'Zásady ochrany osobních údajů — František Smrž. Informace o zpracování dat z kontaktního formuláře.',
 };
 
 export default function PrivacyPage() {
@@ -17,7 +17,7 @@ export default function PrivacyPage() {
 
         <h2>1. Správce údajů</h2>
         <p>
-          Správcem osobních údajů je František Novotný (dále jen
+          Správcem osobních údajů je František Smrž (dále jen
           „správce"). Kontaktní e-mail:{' '}
           <a href="mailto:novotny.ondrej.it@gmail.com">
             novotny.ondrej.it@gmail.com
