@@ -1,8 +1,4 @@
-/*
-  Cloudflare Pages — Security Headers
-  Applied to all routes.
-*/
-
+# Cloudflare Pages Security Headers
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
