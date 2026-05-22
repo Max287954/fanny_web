@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://frantisek-novotny.cz/sitemap.xml
