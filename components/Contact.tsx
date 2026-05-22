@@ -86,7 +86,7 @@ export default function Contact() {
                 Napište mi
               </h2>
               <p className="section-subtitle mx-auto" style={{ opacity: 0.8 }}>
-                Máte dotaz nebo nabídku spolupráce? Neváhejte mě kontaktovat
+                Máte dotaz nebo zprávu? Neváhejte mě kontaktovat
                 prostřednictvím formuláře níže.
               </p>
             </div>
@@ -105,6 +105,9 @@ export default function Contact() {
             )}
 
             <Form onSubmit={handleSubmit} id="contact-form">
+              {/* Web3Forms Honeypot */}
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+              
               <Row className="g-3">
                 <Col md={6}>
                   <Form.Group controlId="contact-name">
