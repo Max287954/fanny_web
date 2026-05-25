@@ -26,9 +26,5 @@
     "eslint-config-next": "^15.0.0",
     "next-sitemap": "^4.2.3",
     "typescript": "^5.5.3"
-  },
-  "overrides": {
-    "postcss": "^8.4.31",
-    "rollup-plugin-visualizer": "^6"
   }
 }
