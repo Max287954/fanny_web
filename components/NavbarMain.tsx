@@ -44,11 +44,6 @@ export default function NavbarMain() {
                 Kontakt
               </a>
             </li>
-            <li className="nav-item">
-              <Link href="/ochrana-soukromi" className="nav-link" onClick={handleNavClick}>
-                Ochrana soukromí
-              </Link>
-            </li>
           </ul>
         </div>
       </div>

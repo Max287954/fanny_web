@@ -1,4 +1,4 @@
-# Architektura — František Novotný Portfolio
+# Architektura — František Smrž Portfolio
 
 ## Přehled
 

@@ -17,7 +17,7 @@ export default function PrivacyPage() {
 
         <h2>1. Správce údajů</h2>
         <p>
-          Správcem osobních údajů je František Smrž (dále jen
+          Správcem osobních údajů je Ondřej Novotný (dále jen
           „správce"). Kontaktní e-mail:{' '}
           <a href="mailto:novotny.ondrej.it@gmail.com">
             novotny.ondrej.it@gmail.com
