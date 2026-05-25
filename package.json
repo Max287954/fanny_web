@@ -2,6 +2,9 @@
   "name": "fandaweb",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -25,6 +28,7 @@
     "typescript": "^5.5.3"
   },
   "overrides": {
-    "postcss": "^8.4.31"
+    "postcss": "^8.4.31",
+    "rollup-plugin-visualizer": "^6"
   }
 }
