@@ -11,7 +11,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero-tagline">
-          Zkušený elektrikář s více než 8 lety praxe v průmyslové výrobě.
+          Zkušený elektrikář s více než 13 lety praxe v průmyslové výrobě.
           Vedoucí směny ve společnosti Husqvarna s důrazem na kvalitu, bezpečnost
           a&nbsp;efektivní řízení týmu.
         </p>

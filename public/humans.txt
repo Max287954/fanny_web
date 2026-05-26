@@ -4,8 +4,8 @@ Contact: novotny.ondrej.it@gmail.com
 From: Česká republika
 
 /* SITE */
-Framework: Next.js 14 (App Router)
+Framework: Next.js 15 (App Router)
 Language: TypeScript
 UI Library: Bootstrap 5 (vanilla)
-Hosting: Cloudflare Pages (SSG)
-Last update: 2026-05-22
+Hosting: Cloudflare Workers (OpenNext)
+Last update: 2026-05-26

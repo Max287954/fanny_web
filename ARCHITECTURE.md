@@ -2,43 +2,59 @@
 
 ## Přehled
 
-Osobní online CV (životopis) postavený na frameworku **Next.js 14** s App Routerem, TypeScriptem a CSS frameworkem **Bootstrap 5**. Stránky jsou generovány jako **statický export (SSG)** pro nasazení na **Cloudflare Pages**.
+Osobní online CV (životopis) postavený na frameworku **Next.js 15** s App Routerem, TypeScriptem a CSS frameworkem **Bootstrap 5**. Stránky jsou nasazeny na **Cloudflare Workers** prostřednictvím adaptéru **@opennextjs/cloudflare**.
 
 ## Technologie
 
-| Technologie        | Verze    | Účel                               |
-| ------------------- | -------- | ---------------------------------- |
-| Next.js             | 14.x     | Framework, App Router, SSG         |
-| TypeScript          | 5.x      | Typová bezpečnost                  |
-| React               | 18.x     | UI knihovna                        |
-| Bootstrap           | 5.3.x    | CSS framework                      |
-| Web3Forms           | API      | Zpracování kontaktního formuláře   |
-| Cloudflare Pages    | —        | Hosting (statický)                 |
+| Technologie             | Verze    | Účel                               |
+| ----------------------- | -------- | ---------------------------------- |
+| Next.js                 | 15.x     | Framework, App Router              |
+| TypeScript              | 5.x      | Typová bezpečnost                  |
+| React                   | 18.x     | UI knihovna                        |
+| Bootstrap               | 5.3.x    | CSS framework                      |
+| Web3Forms               | API      | Zpracování kontaktního formuláře   |
+| @opennextjs/cloudflare  | latest   | Adaptér pro Cloudflare Workers     |
+| Wrangler                | 3.x      | CLI pro nasazení na Cloudflare     |
 
-## SSG — Statický export
+## Nasazení — Cloudflare Workers (OpenNext)
 
-Konfigurace v `next.config.mjs`:
+Projekt používá **@opennextjs/cloudflare** pro nasazení na Cloudflare Workers. Konfigurace je definována v:
+
+- `open-next.config.ts` — konfigurace OpenNext adaptéru
+- `wrangler.json` — konfigurace Cloudflare Workeru
+
+```json
+// wrangler.json (klíčové nastavení)
+{
+  "main": ".open-next/worker.js",
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
+}
+```
+
+### Příkazy pro nasazení
+
+```bash
+npm run preview   # Lokální preview přes Cloudflare
+npm run deploy    # Nasazení na Cloudflare Workers
+npm run upload    # Upload bez nasazení
+```
+
+### Konfigurace Next.js
 
 ```js
+// next.config.mjs
 const nextConfig = {
-  output: 'export',       // Generuje statické HTML do /out
-  trailingSlash: true,     // /ochrana-soukromi → /ochrana-soukromi/index.html
-  images: { unoptimized: true }, // Povinné pro statický export
+  trailingSlash: true, // /ochrana-soukromi → /ochrana-soukromi/
 };
 ```
 
 **Důležité:**
-- `output: 'export'` znamená, že se nepoužívá žádný serverový runtime
-- Všechny stránky jsou pre-renderovány při `npm run build`
-- Výstupní adresář `/out` se nahrává na Cloudflare Pages
-
-### Nasazení na Cloudflare Pages
-
-1. Připojte Git repozitář ke Cloudflare Pages
-2. Nastavení buildu:
-   - **Build command:** `npm run build`
-   - **Build output directory:** `out`
-3. Přidejte proměnnou prostředí `NEXT_PUBLIC_WEB3FORMS_KEY`
+- `trailingSlash: true` zajišťuje konzistentní URL formát
+- Stránky jsou renderovány na Cloudflare Workers (SSR)
+- Pro Cloudflare Workers nasazení je nutný `compatibility_flag: nodejs_compat`
 
 ## Směrování (Routing)
 
@@ -63,7 +79,7 @@ app/
     page.tsx    ← automaticky dostupná na /nova-stranka
 ```
 
-Navbar (`components/NavbarMain.tsx`) pak stačí rozšířit o nový `<Nav.Link>`.
+Navbar (`components/NavbarMain.tsx`) pak stačí rozšířit o nový odkaz.
 
 ## Stylování — Bootswatch strategie
 
@@ -111,6 +127,10 @@ Vlastní vizuální identita je definována v `app/globals.css` přes CSS custom
 2. Vytvořte formulář a zkopírujte Access Key
 3. Vytvořte `.env.local` dle šablony `.env.local.example`
 
+## SEO — Sitemap
+
+Sitemap je generován nativně přes Next.js v `app/sitemap.ts`. Generuje se automaticky na `/sitemap.xml`.
+
 ## Bezpečnostní hlavičky
 
 Soubor `public/_headers` definuje Cloudflare Pages hlavičky:
@@ -128,6 +148,7 @@ fanda_stranka/
 │   ├── globals.css              # Globální styly + CSS custom properties
 │   ├── layout.tsx               # Root layout (metadata, navbar, footer)
 │   ├── page.tsx                 # Hlavní one-pager
+│   ├── sitemap.ts               # SEO sitemap generátor
 │   └── ochrana-soukromi/
 │       └── page.tsx             # GDPR zásady ochrany soukromí
 ├── components/
@@ -138,15 +159,18 @@ fanda_stranka/
 │   ├── Experience.tsx           # Pracovní zkušenosti (timeline)
 │   └── Contact.tsx              # Kontaktní formulář (Web3Forms)
 ├── public/
-│   ├── _headers                 # Cloudflare Pages bezpečnostní hlavičky
+│   ├── _headers                 # Cloudflare bezpečnostní hlavičky
 │   ├── robots.txt               # SEO — povolení indexace
 │   ├── humans.txt               # Vývojářské kredity
 │   └── .well-known/
 │       └── security.txt         # Bezpečnostní kontakt (RFC 9116)
 ├── .env.local.example           # Šablona proměnných prostředí
+├── .nvmrc                       # Verze Node.js (22)
 ├── .gitignore
 ├── ARCHITECTURE.md              # Tento dokument
-├── next.config.mjs              # SSG konfigurace
+├── next.config.mjs              # Konfigurace Next.js
+├── open-next.config.ts          # Konfigurace OpenNext adaptéru
+├── wrangler.json                # Konfigurace Cloudflare Workers
 ├── package.json
 └── tsconfig.json
 ```
