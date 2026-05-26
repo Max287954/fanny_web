@@ -19,8 +19,8 @@ export default function PrivacyPage() {
         <p>
           Správcem osobních údajů je František Smrž (dále jen
           „správce"). Kontaktní e-mail:{' '}
-          <a href="mailto:kontakt@thesmrz.cz">
-            kontakt@thesmrz.cz
+          <a href="mailto:frantisek@thesmrz.cz">
+            frantisek@thesmrz.cz
           </a>
         </p>
 
@@ -101,8 +101,8 @@ export default function PrivacyPage() {
         <p>
           Pro uplatnění svých práv nebo s&nbsp;dotazy ohledně ochrany
           osobních údajů mě kontaktujte na:{' '}
-          <a href="mailto:kontakt@thesmrz.cz">
-            kontakt@thesmrz.cz
+          <a href="mailto:frantisek@thesmrz.cz">
+            frantisek@thesmrz.cz
           </a>
         </p>
       </div>
