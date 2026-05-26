@@ -14,7 +14,7 @@ Osobní online CV (životopis) postavený na frameworku **Next.js 15** s App Rou
 | Bootstrap               | 5.3.x    | CSS framework                      |
 | Web3Forms               | API      | Zpracování kontaktního formuláře   |
 | @opennextjs/cloudflare  | latest   | Adaptér pro Cloudflare Pages       |
-| Wrangler                | 3.x      | CLI pro nasazení na Cloudflare     |
+| Wrangler                | 4.x      | CLI pro nasazení na Cloudflare     |
 
 ## Nasazení — Cloudflare Pages (OpenNext)
 
