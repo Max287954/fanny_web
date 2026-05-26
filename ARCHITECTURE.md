@@ -2,7 +2,7 @@
 
 ## Přehled
 
-Osobní online CV (životopis) postavený na frameworku **Next.js 15** s App Routerem, TypeScriptem a CSS frameworkem **Bootstrap 5**. Stránky jsou nasazeny na **Cloudflare Workers** prostřednictvím adaptéru **@opennextjs/cloudflare**.
+Osobní online CV (životopis) postavený na frameworku **Next.js 15** s App Routerem, TypeScriptem a CSS frameworkem **Bootstrap 5**. Stránky jsou nasazeny na **Cloudflare Pages** prostřednictvím adaptéru **@opennextjs/cloudflare**.
 
 ## Technologie
 
@@ -13,33 +13,34 @@ Osobní online CV (životopis) postavený na frameworku **Next.js 15** s App Rou
 | React                   | 18.x     | UI knihovna                        |
 | Bootstrap               | 5.3.x    | CSS framework                      |
 | Web3Forms               | API      | Zpracování kontaktního formuláře   |
-| @opennextjs/cloudflare  | latest   | Adaptér pro Cloudflare Workers     |
+| @opennextjs/cloudflare  | latest   | Adaptér pro Cloudflare Pages       |
 | Wrangler                | 3.x      | CLI pro nasazení na Cloudflare     |
 
-## Nasazení — Cloudflare Workers (OpenNext)
+## Nasazení — Cloudflare Pages (OpenNext)
 
-Projekt používá **@opennextjs/cloudflare** pro nasazení na Cloudflare Workers. Konfigurace je definována v:
+Projekt používá **@opennextjs/cloudflare** pro nasazení na Cloudflare Pages. Konfigurace je definována v:
 
 - `open-next.config.ts` — konfigurace OpenNext adaptéru
-- `wrangler.json` — konfigurace Cloudflare Workeru
+- `wrangler.json` — konfigurace Cloudflare Pages
 
 ```json
 // wrangler.json (klíčové nastavení)
 {
-  "main": ".open-next/worker.js",
-  "assets": {
-    "directory": ".open-next/assets",
-    "binding": "ASSETS"
-  }
+  "pages_build_output_dir": ".open-next",
+  "compatibility_flags": ["nodejs_compat"]
 }
 ```
 
-### Příkazy pro nasazení
+### Cloudflare Pages — nastavení buildu v dashboardu
+
+- **Build command:** `npx opennextjs-cloudflare build`
+- **Build output directory:** *(ponechat prázdné — řídí se přes wrangler.json)*
+
+### Příkazy pro lokální vývoj a manuální nasazení
 
 ```bash
-npm run preview   # Lokální preview přes Cloudflare
-npm run deploy    # Nasazení na Cloudflare Workers
-npm run upload    # Upload bez nasazení
+npm run preview   # Lokální preview přes wrangler pages dev
+npm run deploy    # Manuální nasazení na Cloudflare Pages
 ```
 
 ### Konfigurace Next.js
@@ -53,8 +54,8 @@ const nextConfig = {
 
 **Důležité:**
 - `trailingSlash: true` zajišťuje konzistentní URL formát
-- Stránky jsou renderovány na Cloudflare Workers (SSR)
-- Pro Cloudflare Workers nasazení je nutný `compatibility_flag: nodejs_compat`
+- Stránky jsou nasazeny na Cloudflare Pages přes OpenNext adaptér
+- Pro nasazení je nutný `compatibility_flag: nodejs_compat`
 
 ## Směrování (Routing)
 
