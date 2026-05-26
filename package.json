@@ -9,13 +9,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "preview": "npx @opennextjs/cloudflare build && wrangler pages dev .open-next",
-    "deploy": "npx @opennextjs/cloudflare build && wrangler pages deploy .open-next",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@opennextjs/cloudflare": "latest",
     "bootstrap": "^5.3.3",
     "next": "^15.0.0",
     "react": "^18.3.1",
@@ -27,7 +23,6 @@
     "@types/react-dom": "^18.3.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "^15.0.0",
-    "typescript": "^5.5.3",
-    "wrangler": "^4.86.0"
+    "typescript": "^5.5.3"
   }
 }
